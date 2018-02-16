@@ -12,6 +12,18 @@ This test was designed to be developed in at most 8 hours and you should use the
 ![grid Android 7.1.1](/images/device-2015-10-08-132258.png)
 ![list Android 7.1.1](/images/device-2015-10-08-132332.png)
 
+## Instructions
+
+All the placeholder images are inside of the project in the drawable(s) folders [mdpi, hdpi, xhdpi, etc.] you must use them if the images load slowly or incorrect way, the placeholder images will be shown.
+
+One example of the the http calls is:
+>https://api.trakt.tv/shows/game-of-thrones?extended=full
+
+``headers -> Content-Type:application/json ; trackt-api-key:[api_key] ; trackt-api-version:2``
+
+In order to obtain an API KEY you have to register in Trackt TV is completely free, if you don't want to do the registration, you can use this API KEY
+
+>0b6fc75bf56b7dc8e7d02f802193b5e0cc0b0cb8ffa4eaa1cf00bda24c4edb07
 
 ## Requirements
 * You must use Android Studio and Gradle
