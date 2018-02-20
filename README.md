@@ -50,4 +50,4 @@ You have two options:
 
 1) Create a _pull request_ to our [__public__ repository](https://github.com/itexico/android_test). Note that your *fork* will be public for anyone to see.
 
-2) In case you prefer some privacy, create a repository with the name **test-android** in your GitHub or Gitlab account, add the user @giovas17 for Github or @darkgeat for Gitlab as a collaborator (read-only access is enough) and send an email to recruitment.android@movile.com to let us know.
+2) In case you prefer some privacy, create a repository with the name **test-android** in your GitHub or Gitlab account, add the user @giovas17 for Github or @darkgeat for Gitlab as a collaborator (read-only access is enough) and send an email to fcerda@itexico.com to let us know.
