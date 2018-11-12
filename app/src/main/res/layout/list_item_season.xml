@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="90dp"
+    tools:layout_height="180dp"
+    tools:layout_width="160dp">
+
+    <ImageView
+        android:id="@+id/item_season_iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/description_season_image"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/season_background_placeholder" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/list_item_background"
+        android:padding="@dimen/padding_small">
+
+        <TextView
+            android:id="@+id/item_season_tv_name"
+            style="@style/ListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            tools:text="Season 0Season 0Season 0Season 0Season 0Season 0" />
+
+        <TextView
+            android:id="@+id/item_season_tv_seasons"
+            style="@style/ListTitle.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_season_tv_name"
+            tools:text="Seasons: 8" />
+
+        <TextView
+            android:id="@+id/item_season_tv_rating"
+            style="@style/ListTitle.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/item_season_tv_name"
+            android:layout_toEndOf="@id/item_season_tv_seasons"
+            android:gravity="end"
+            tools:text="Rating: 8.88" />
+    </RelativeLayout>
+
+</RelativeLayout>

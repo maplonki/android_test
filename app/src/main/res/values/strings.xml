@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="description_season_image">An image for the show\'s season</string>
+
+    <string name="season_list_tv_episodes">Episodes: %s</string>
+    <string name="season_list_tv_rating">Rating: %s</string>
+
 </resources>

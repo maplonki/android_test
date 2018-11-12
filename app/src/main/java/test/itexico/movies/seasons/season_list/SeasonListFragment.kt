@@ -2,9 +2,13 @@ package test.itexico.movies.seasons.season_list
 
 import android.app.Fragment
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import kotlinx.android.synthetic.main.fragment_season_list.*
 import test.itexico.movies.R
 import test.itexico.movies.extensions.inflate
 import test.itexico.movies.model.Season
@@ -16,26 +20,45 @@ import test.itexico.movies.seasons.SeasonRepositoryLocal
  */
 class SeasonListFragment : Fragment(), SeasonListContract.View {
 
+    companion object {
+        fun newInstance() = SeasonListFragment()
+    }
 
     private val seasonListPresenter: SeasonListPresenter = SeasonListPresenter(SeasonRepositoryLocal(), this)
 
-    companion object {
-        fun newInstance() = SeasonListFragment()
+    private val recyclerView: RecyclerView by lazy { season_list_recyclerview }
+    private val progressbar: ProgressBar by lazy { season_list_pb_loading }
+
+    private val recyclerViewAdapter: SeasonListAdapter = SeasonListAdapter { season, _ ->
+        seasonListPresenter.openSeasonDetail(season.seasonId)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return container?.inflate(R.layout.fragment_season_list) ?: throw RuntimeException("Unable to create view for layout ${R.layout.fragment_season_list}")
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView.apply {
+            setHasFixedSize(true)
+            adapter = recyclerViewAdapter
+
+            val layoutManager = GridLayoutManager(activity, 2)
+            setLayoutManager(layoutManager)
+        }
+        seasonListPresenter.loadSeasonList()
+    }
+
     /**
      * SeasonListContract.View
      */
     override fun showSeasonList(seasons: List<Season>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        recyclerViewAdapter.setItems(seasons)
     }
 
     override fun showLoading(isLoading: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressbar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
     }
 
     override fun showSeasonDetail(seasonId: Long) {
