@@ -4,5 +4,6 @@
 
     <string name="season_list_tv_episodes">Episodes: %s</string>
     <string name="season_list_tv_rating">Rating: %s</string>
+    <string name="description_season_cover">Cover image for the season</string>
 
 </resources>

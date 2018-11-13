@@ -8,7 +8,7 @@ import android.view.View
  */
 abstract class BaseListAdapter<T, VH : BaseListAdapter<T, VH>.BaseViewHolder>(
         var itemList: List<T>,
-        var itemClick: (T, position: Int) -> Unit
+        var itemClick: ((T, position: Int) -> Unit)? = null
 
 ) : RecyclerView.Adapter<VH>() {
 
@@ -24,7 +24,7 @@ abstract class BaseListAdapter<T, VH : BaseListAdapter<T, VH>.BaseViewHolder>(
         init {
             view.setOnClickListener {
                 val position = adapterPosition
-                itemClick(itemList[position], position)
+                itemClick?.invoke(itemList[position], position)
             }
         }
     }

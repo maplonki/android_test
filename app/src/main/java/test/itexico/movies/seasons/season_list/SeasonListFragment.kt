@@ -14,6 +14,7 @@ import test.itexico.movies.extensions.inflate
 import test.itexico.movies.model.Season
 import test.itexico.movies.season_list.SeasonListContract
 import test.itexico.movies.seasons.SeasonRepositoryLocal
+import test.itexico.movies.seasons.season_detail.SeasonDetailFragment
 
 /**
  * Created by hugo on 11/11/18.
@@ -47,6 +48,10 @@ class SeasonListFragment : Fragment(), SeasonListContract.View {
             val layoutManager = GridLayoutManager(activity, 2)
             setLayoutManager(layoutManager)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         seasonListPresenter.loadSeasonList()
     }
 
@@ -62,6 +67,9 @@ class SeasonListFragment : Fragment(), SeasonListContract.View {
     }
 
     override fun showSeasonDetail(seasonId: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activity.fragmentManager.beginTransaction()
+                .add(R.id.fragment_container, SeasonDetailFragment.newInstance(seasonId))
+                .addToBackStack(null)
+                .commit()
     }
 }
